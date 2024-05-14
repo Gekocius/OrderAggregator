@@ -21,7 +21,7 @@ public class OrderAggregator(IOrderQueue orderQueue, TimeProvider timeProvider, 
         await Task.Yield();
         var lastSubmit = _timeProvider.GetUtcNow();
         while (!stoppingToken.IsCancellationRequested)
-        {   
+        {
             var order = await _orderQueue.DequeueOrderAsync(stoppingToken);
             UpsertOrder(order);
 

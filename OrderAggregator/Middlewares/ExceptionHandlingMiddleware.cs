@@ -20,7 +20,7 @@ public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<Exception
         {
             await _next(context);
         }
-        catch (OperationCanceledException ex) when (!context.RequestAborted.IsCancellationRequested) 
+        catch (OperationCanceledException ex) when (!context.RequestAborted.IsCancellationRequested)
         {
             await HandleExceptionAsync(context, ex);
         }
