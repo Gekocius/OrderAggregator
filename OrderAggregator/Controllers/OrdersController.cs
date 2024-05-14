@@ -20,6 +20,8 @@ public class OrdersController(IOrderService orderService) : ControllerBase
     /// </summary>
     /// <param name="orders">Collection of orders to create.</param>
     /// <param name="cancellationToken">Cancellation token observed during request processing.</param>
+    /// <response code="201">Order creation was successful</response>
+    /// <response code="400">One or more orders have quantity less or equal to zero.</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
